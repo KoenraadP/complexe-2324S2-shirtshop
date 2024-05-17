@@ -28,10 +28,20 @@ namespace ShirtShop.Cons
             PropertyInfo[] properties = tshirt.GetType().GetProperties();
 
             // foreach die alle properties toont in console
-            foreach (var property in properties)
-            {
-                Console.WriteLine(property.Name + " : " 
+            foreach (var property in properties) 
+            { 
+                if (property.Name != "Colors")
+                {
+                    Console.WriteLine(property.Name + " : "
                                 + property.GetValue(tshirt));
+                }
+                else
+                {
+                    foreach (var item in tshirt.Colors)
+                    {
+                        Console.WriteLine(item);
+                    }
+                }
             }
         }
     }
